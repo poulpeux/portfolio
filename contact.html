@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem;
+            margin-bottom: 40px;
+            margin-left: 8px;
+        }
+
+        nav {
+            width: 200px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px;
+
+        }
+
+        
+        li {
+            position: relative;
+            margin-bottom:20px;
+        }
+
+        li > a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+/*          background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 5px;*/
+        }
+
+        li > a:hover {
+            background-color: #ddd;
+            border-radius: 10px
+        }
+
+        ul ul {
+            display: block; /* Ensures the sub-menu is part of the layout */
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 200px;
+            padding: 0;
+            margin: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition effect */
+            font-style: italic;
+        }
+
+        ul ul li {
+            width: 100%;
+        }
+
+        ul ul li a {
+            font-size: 1rem;
+            padding: 10px;
+            margin: 0;
+            border: none;
+        }
+
+        ul ul li a:hover {
+            background-color: #eee;
+            border-radius: 10px;
+        }
+
+        li:hover > ul {
+            opacity: 1; /* Fully visible */
+            visibility: visible; /* Ensure it is visible */
+
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            right: 10vw;
+            width: 35vw; /* Adjust the width as needed */
+            height: 100vh; /* Full height */
+            object-fit: cover; /* Maintain aspect ratio while covering the area */
+            z-index: -1; /* Place behind content */
+        }
+
+        .logo-button {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000;
+            text-decoration: none;
+/*            padding: 10px 20px;*/
+            border: none;
+            font-size: 6rem; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+            
+        }
+
+        .logo-button:hover {
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+            }
+    </style>
+</head>
+<body>
+
+    <header style="z-index: 100">
+        <a href="/index" class="logo-button">Hugo Cuenot</a></header>
+
+    <h1 style="font-style: italic;margin-left: 30px;r">Contact</h1>
+    <h2 style="margin-left: 20px; font-size: 20px;">
+        <p>cuenot.hugo@gmail.com</p>
+        <p>Sur instagram <a href="instgram.com/poulpeux">@poulpeux</a></p>
+    </h2>
+
+    <img src="https://lh3.googleusercontent.com/fife/ALs6j_EyNiMsxdowuLRBpA3E5np9fY_08-rXk_STtHEebtdOPfTrBDFPyix5QsCwE6ulBUQBPZy69OFeBSWC6EJ8fbllzY8IuqlJUS6Kp1VYS-9VC9hXkXpUkieKuBA59MkPl1b273pXi59Bw6tJHCFmGDHvdDs1bYYS2UQvmfOrVn5YYGUgZVHAVD0Y5nl12dVQeAaxlxKTnZXJ6tQmIhU-qvvKbo1F9CJm58d_XAg_9ylYjZTt6OEa8Hg4YzfevLjx0IXeAbqjmmjUnpdmdIb1RQknOi40ihqP00JNxd_z31gynYpsrTyyGk1AcVtRC8RslcIT8edc4lPxeri38AnBoQ6RPFNlPpo0Nu776YXJgq85NKLhX3kcld_g8fiB5Db2slRATaeZBTyzG8NQTL7DD-E0GzelpmeYizkAanR75OTWxAI2JAA2Y-iByJIdGtlRfIYdoLsU-mcWuN_wC9-Z7teqERj6kNA8TDVXrpIPEG4RDZSBQxcvIYIB5Szhk03rCqGOjrnNV1JmvcZVjOzEo6THU1BhvlgVZhHPGJrXBLitCYJ2M_xruf7xKcqeyHiswPsFxmHAv1yxMEwCMJW0VUT9ka6IKg3Je4TU-BIBT9JZ_Ht7A6WMMivjlBUjMRaSEQ_K3JSKAdk41JoYdzzX5mbcCZwt92pcopNr1cAIvpXteeRJEcX0026Bh8P_OAyPr1VjLaB-USwLz3fxtaM8KimmxVPtGNc6AHDLQndlebdZ-9pI-9xRXHPWxxRMAmY_3os2O_sxBKRwKvUjaWAtb1fGMCzZ8YR9yV1HNQPeisdpp2aqGjDUCTQy_l5Mde1j5QZWIOPRXWay1N7WlJktS-WNInC4Wq73yEBMB-RQILt3iVTnOOuZ7EfvyZFutK5UUk95YqGHdN3BDJlpwtssWHeRFJyn1yyKM6GNekzsIweg-dC06S1lmSg3AGSAI1UfjMtz4d8r6NJbOQ02HJlr1kOei0GaKp-glh6J1IfpsJJ2QD_FmT5HL04mc7hZ1YuIxrfhQVuxHBvf9vhx00MnGXYRIktk70Sdz3JmsVG4pSWcNAw-UyMzCEzBA1__8KlOQcryYsFUfZ7AW6u0mcdxTBeNsL5O3Ur_xo1quoZFVYGWH6e7ICtU1f1e5hF_l3i__UilPxxInsx5l7obv9d1BOAKfqxp192iRvuEwGsFmEHiQoArTrgyne-BOvxvXKeHLvyE7LDGPmiGtGq4IEP02Zcl4u0dklS4cfmGdBGen40_m_8XE3AuGA6Qd4-teHnazlvtRsXxalf_uPkn_wvH-S7oWS5I7YPRqqCEx7DNfMkOOwYjapXzUDH3kvT8iHj_OwCAKU9-xaLdAIvWpEVK78SLV3k0aPw85mvRXH8weSU-ZKzRSTmiCmLRxEorWbZ2idy2Hfzq7f0ghvLa0ucjA6xFLcQuJoU_RXX4BdSm462eG1pfN5nrAysCSHKud9ypOx7m1aQt2m8KNNknQzqIHigyuY9qYm6u33b_hgOgpv6BuEEV8-gPWiUh1OVlIwamBcEUEf0Cr5ua8fH-F8et6EGvtzGmD3W39yhi1ipcSYUCFWGWJ3gzzAdx7hlHPA84nLzKU3CUQSMM9q1zrav2JzlNXpVpzZi7WjbdQ9oRDaHLusbOHULzptE=w1868-h942" alt="Background Image" class="background-image">
+
+</body>
+</html>
