@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homoncule</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: -10px;
+        }
+
+        h3 {
+            font-style: italic;
+            font-weight: 100;
+            font-size: 1rem;
+
+        }
+
+        nav {
+            width: 200px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px;
+
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        li > a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+        }
+
+        li > a:hover {
+            background-color: #ddd;
+        }
+
+        ul ul {
+            display: block; /* Ensures the sub-menu is part of the layout */
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            position: absolute;
+            right: 100%;
+            top: 0;
+            width: 200px;
+            padding: 0;
+            margin: 0;
+            border-radius: 8px;
+            background-color: white;
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition effect */
+            z-index: 40;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for better visibility */
+            font-style: italic;
+        }
+
+        ul ul li {
+            width: 100%;
+            z-index: 40;
+        }
+
+        ul ul li a {
+            font-size: 1rem;
+            padding: 10px;
+            margin: 0;
+            border: none;
+            background-color: rgba(255, 255, 255, 1); /* Slightly more opaque */
+            z-index: 40;
+        }
+
+        ul ul li a:hover {
+            background-color: #eee;
+            border-radius: 10px;
+        }
+
+        li:hover > ul {
+            opacity: 1; /* Fully visible */
+            visibility: visible; /* Ensure it is visible */
+        }
+
+        .content {
+            display: flex;
+            height: calc(100vh - 60px); /* Adjust based on header height */
+        }
+
+        .text-section {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-right: 1px solid #ccc;
+            overflow-y: auto; /* Scroll if content overflows */
+        }
+
+        .carousel-section {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .carousel {
+            width: 75%;
+            height: 75%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .carousel img,
+        .carousel iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel img.active,
+        .carousel iframe.active {
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between thumbnails */
+            position: relative;
+            width: 100%; /* Ensure it takes the full width */
+            overflow: hidden;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .thumbnails img:nth-child(1),
+        .thumbnails img:nth-child(2) {
+            opacity: 0.5; /* Darker for the first images */
+        }
+
+        .thumbnails img:last-child,
+        .thumbnails img:nth-last-child(2) {
+            opacity: 0.5; /* Darker for the last images */
+        }
+
+        .thumbnails img:hover,
+        .thumbnails img.active-thumbnail {
+            opacity: 1;
+            border-color: #333;
+        }
+
+        .logo-button {
+        font-family: 'Bebas Neue', sans-serif;
+        color: #000;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: none;
+        font-size: 6rem; 
+        transition: background-color 0.3s ease, color 0.3s ease;
+        
+    }
+
+        .logo-button:hover {
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <header style="z-index: 100">
+        <a href="#" class="logo-button">Hugo Cuenot</a>
+        
+        <nav>
+        <ul>
+            <li><a href="#">Vidéo</a>
+                <ul>
+                    <li><a href="#">lockers, swimmers, wrestlers</a></li>
+                    <li><a href="#">Fisherman's boots</a></li>
+                    <li><a href="#">Microtouch</a></li>
+                    <li><a href="#">Ghost Mechanic</a></li>
+                    <li><a href="#">Under a walnut tree</a></li>
+                    <li><a href="#">Prn Ads</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Impressions</a>
+                <ul>
+                    <li><a href="#">Kiss/Viral article</a></li>
+                    <li><a href="#">Pulp fanzines</a></li>
+                    <li><a href="#">Leather D</a></li>
+                    <li><a href="#">Homoncule</a></li>
+                    <li><a href="#">Hidden cams</a></li>
+                    <li><a href="#">Récits interactifs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+
+    <div class="content">
+        <div class="text-section">
+            <h2>Homoncule</h2>
+            <h3>2024</h3>
+            <p>Un travail de déconstructions,  de destruction des imageries hyper masculinistes qui gangrènent mon travail. Un découpage de plusieurs images trouvées, pour en dresser à la fois un inventaire de zones érogènes, et d’autre part une création d’un homoncule, un amas de partie humaine qui serait une personnification de la déconstruction que je cherche à faire de ces images et de ces corps masculins.</p>
+            <p></p>
+        </div>
+        <div class="carousel-section">
+            <div class="carousel">
+                <img src="https://lh3.google.com/u/0/d/1nd7sNIoX-28JqBndorBSCyC1jaQ1tQHB=w1217-h913-iv1" alt="Slide 2" class="active">
+                <img src="https://lh3.google.com/u/0/d/1mQLpEC3Hb-EpfYnXUmykTi_kOJfYuoZa=w1217-h913-iv1" alt="Slide 3">
+                <img src="https://lh3.google.com/u/0/d/1kjZeU_aBnuyVj7Hyqqf8mLMc6PPedD0S=w1217-h913-iv1" alt="Slide 4">                
+                <div class="carousel-controls" style="z-index: 2;">
+                    <button class="carousel-control" id="prev">‹</button>
+                    <button class="carousel-control" id="next">›</button>
+                </div>
+            </div>
+
+                <!-- Thumbnails Section -->
+            <div class="thumbnails" style="d">
+                <img src="https://lh3.google.com/u/0/d/1nd7sNIoX-28JqBndorBSCyC1jaQ1tQHB=w1217-h913-iv1" alt="Thumbnail 1" data-index="0" class="active-thumbnail">
+                <img src="https://lh3.google.com/u/0/d/1mQLpEC3Hb-EpfYnXUmykTi_kOJfYuoZa=w1217-h913-iv1" alt="Thumbnail 2" data-index="1">
+                <img src="https://lh3.google.com/u/0/d/1kjZeU_aBnuyVj7Hyqqf8mLMc6PPedD0S=w1217-h913-iv1" alt="Thumbnail 3" data-index="2">
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <script>
+            const slides = document.querySelectorAll('.carousel img, .carousel iframe');
+            const thumbnails = document.querySelectorAll('.thumbnails img');
+            const nextBtn = document.getElementById('next');
+            const prevBtn = document.getElementById('prev');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                    if (slide.tagName === 'IFRAME' && i === index) {
+                        slide.contentWindow.postMessage('{"method":"play"}', '*');
+                    } else if (slide.tagName === 'IFRAME') {
+                        slide.contentWindow.postMessage('{"method":"pause"}', '*');
+                    }
+                });
+
+                thumbnails.forEach((thumbnail, i) => {
+                    thumbnail.classList.toggle('active-thumbnail', i === index);
+                });
+
+                currentSlide = index;
+            }
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    showSlide(index);
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            });
+
+            // Initialize the first slide
+            showSlide(currentSlide);
+
+    </script>
+
+</body>
+</html>
