@@ -375,15 +375,14 @@
             align-items: center;
             position: relative;
             background-color: #fff;
-
                 overflow-x: hidden;
                 overflow: visible;
             }
             
             .thumbnails {
                 justify-content: flex-start;
-                overflow-x: scroll;
                 top: 70%;
+                overflow: hidden;
             }
 
             .thumbnails img {
@@ -407,10 +406,12 @@
             border: none;
             font-size: 3rem; 
             transition: background-color 0.3s ease, color 0.3s ease;
+            
             }
+            
             .carousel-controls {
                 display: none;
-            }
+        }
     }
 
     </style>
