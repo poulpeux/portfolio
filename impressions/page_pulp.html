@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulp fanzines</title>
-    <style>
+   <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
         body {
@@ -45,7 +45,6 @@
             font-style: italic;
             font-weight: 100;
             font-size: 1rem;
-
         }
 
         nav {
@@ -56,7 +55,6 @@
             list-style-type: none;
             padding: 0;
             margin: 10px;
-
         }
 
         li {
@@ -74,7 +72,6 @@
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
-
         }
 
         li > a:hover {
@@ -82,9 +79,9 @@
         }
 
         ul ul {
-            display: block; /* Ensures the sub-menu is part of the layout */
-            opacity: 0; /* Initially hidden */
-            visibility: hidden; /* Initially hidden */
+            display: block;
+            opacity: 0;
+            visibility: hidden;
             position: absolute;
             right: 100%;
             top: 0;
@@ -93,9 +90,9 @@
             margin: 0;
             border-radius: 8px;
             background-color: white;
-            transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition effect */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 40;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for better visibility */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-style: italic;
         }
 
@@ -109,7 +106,7 @@
             padding: 10px;
             margin: 0;
             border: none;
-            background-color: rgba(255, 255, 255, 1); /* Slightly more opaque */
+            background-color: rgba(255, 255, 255, 1);
             z-index: 40;
         }
 
@@ -119,13 +116,13 @@
         }
 
         li:hover > ul {
-            opacity: 1; /* Fully visible */
-            visibility: visible; /* Ensure it is visible */
+            opacity: 1;
+            visibility: visible;
         }
 
         .content {
             display: flex;
-            height: calc(100vh - 60px); /* Adjust based on header height */
+            height: calc(100vh - 60px);
         }
 
         .text-section {
@@ -133,7 +130,7 @@
             padding: 20px;
             background-color: #fff;
             border-right: 1px solid #ccc;
-            overflow-y: auto; /* Scroll if content overflows */
+            overflow-y: auto;
         }
 
         .carousel-section {
@@ -201,10 +198,11 @@
         .thumbnails {
             display: flex;
             justify-content: center;
-            gap: 10px; /* Space between thumbnails */
+            gap: 10px;
             position: relative;
-            width: 100%; /* Ensure it takes the full width */
+            width: 100%;
             overflow: hidden;
+            
         }
 
         .thumbnails img {
@@ -220,12 +218,12 @@
 
         .thumbnails img:nth-child(1),
         .thumbnails img:nth-child(2) {
-            opacity: 0.5; /* Darker for the first images */
+            opacity: 0.5;
         }
 
         .thumbnails img:last-child,
         .thumbnails img:nth-last-child(2) {
-            opacity: 0.5; /* Darker for the last images */
+            opacity: 0.5;
         }
 
         .thumbnails img:hover,
@@ -235,22 +233,189 @@
         }
 
         .logo-button {
-        font-family: 'Bebas Neue', sans-serif;
-        color: #000;
-        text-decoration: none;
-        padding: 10px 20px;
-        border: none;
-        font-size: 6rem; 
-        transition: background-color 0.3s ease, color 0.3s ease;
-        
-    }
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: none;
+            font-size: 6rem; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
         .logo-button:hover {
-        background-color: #000;
-        color: #fff;
-        cursor: pointer;
-    }
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
 
+
+
+
+        /* Styles adaptatifs */
+        @media (min-width: 1px) and (max-width: 768px) {
+         
+        body{
+            
+            overflow-x: hidden;
+            overflow-y: visible;
+        }
+            
+        header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin: 0;
+             }
+
+        nav {
+            width: 100%;
+            }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px;
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        li > a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+        }
+
+        li > a:hover {
+            background-color: #ddd;
+        }
+
+        ul ul {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            right: 0%;
+            top: 0;
+            width: 200px;
+            padding: 0;
+            margin: 0;
+            border-radius: 8px;
+            background-color: white;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 40;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-style: italic;
+        }
+
+        ul ul li {
+            width: 100%;
+            z-index: 40;
+        }
+
+        ul ul li a {
+            font-size: 1rem;
+            padding: 10px;
+            margin: 0;
+            border: none;
+            background-color: rgba(255, 255, 255, 1);
+            z-index: 40;
+        }
+
+        ul ul li a:hover {
+            background-color: #eee;
+            border-radius: 10px;
+        }
+
+        li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+            .content {
+            flex-direction: column;
+            }
+
+            .carousel-section {
+                order: 2;
+            }
+
+            .text-section {
+                flex: 3;
+                order: 1;
+                border-right: none;
+                border-top: 1px solid #ccc;
+                overflow: visible;
+            }
+
+            .carousel {
+            width: 85%;
+            height: 100%;
+            overflow: hidden;
+            
+            scale: 1.8;
+            }
+            
+            .carousel-section {
+            flex: 1;
+            display: block;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #fff;
+                overflow-x: hidden;
+                overflow: visible;
+            }
+            
+            .thumbnails {
+                justify-content: center;
+                top: 70%;
+                overflow: hidden;
+                padding: 10px;
+            }
+
+            .thumbnails img {
+                width: 80px;
+                height: 50px;
+            }
+
+            .carousel img,
+            .carousel iframe {
+                position: absolute;
+                height: 50%
+                width: 50%
+                
+            }
+            
+            .logo-button {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: none;
+            font-size: 3rem; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+            
+            }
+            
+            .carousel-controls {
+                display: none;
+        }
+    }
 
     </style>
 </head>
