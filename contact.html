@@ -4,9 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
-    <style>
+     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        @media only screen and (max-width: 768px) {
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        flex-direction: column;
+        overflow: hidden;
+    }
 
+    header {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 4rem;
+        margin-bottom: 40px;
+        margin-left: 5px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    li > a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: bold;
+        
+        padding: 8px;
+        display: block;
+    }
+
+    li > a:hover {
+        background-color: #ddd;
+        border-radius: 10px;
+    }
+
+    ul ul {
+        display: none; /* Cacher les sous-menus par défaut sur mobile */
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%; /* Ajuster la largeur du sous-menu */
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    li:hover > ul,
+    li:focus-within > ul {
+        display: block; /* Afficher les sous-menus au clic/tap */
+    }
+
+    ul ul li a {
+        font-size: 1rem;
+        padding: 10px;
+        margin: 0;
+        border: none;
+        font-style: italic;
+    }
+
+    ul ul li a:hover {
+        background-color: #eee;
+        border-radius: 10px;
+    }
+
+    .background-image {
+        width: 1000vw;
+        height: 100vh; /* Réduction de la hauteur de l'image de fond */
+        right: 0;
+        object-fit: contain;
+    }
+}
+
+@media only screen and (min-width: 769px) {
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -84,6 +173,7 @@
             padding: 10px;
             margin: 0;
             border: none;
+            
         }
 
         ul ul li a:hover {
@@ -105,26 +195,8 @@
             height: 100vh; /* Full height */
             object-fit: cover; /* Maintain aspect ratio while covering the area */
             z-index: -1; /* Place behind content */
-        }
-
-        .logo-button {
-            font-family: 'Bebas Neue', sans-serif;
-            color: #000;
-            text-decoration: none;
-/*            padding: 10px 20px;*/
-            border: none;
-            font-size: 6rem; 
-            transition: background-color 0.3s ease, color 0.3s ease;
-            
-        }
-
-        .logo-button:hover {
-            background-color: #000;
-            color: #fff;
-            cursor: pointer;
-        }
-            }
     </style>
+
 </head>
 <body>
 
