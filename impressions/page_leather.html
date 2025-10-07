@@ -421,33 +421,22 @@
 </head>
 <body>
 
+<script>
+  // Charger dynamiquement le menu
+  fetch('/menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+    })
+    .catch(error => console.error('Erreur de chargement du menu :', error));
+</script>
+<body>
+
 <header style="z-index: 100">
         <a href="/index" class="logo-button">Hugo Cuenot</a>
         
         <nav>
-        <ul>
-             <li><a href="#">Vidéo</a>
-                <ul>
-                    <li><a href="/videos/page_lockers">lockers, swimmers, wrestlers</a></li>
-                    <li><a href="/videos/page_rosebay">Rosebay Bush / Neither Fruit nor Fairy</a></li>
-                    <li><a href="/videos/page_Fisherman">Fisherman's boots</a></li>
-                    <li><a href="/videos/page_microtouch">Microtouch</a></li>
-                    <li><a href="/videos/page_ghost">Ghost Mechanic</a></li>
-                    <li><a href="/videos/page_under">Under a walnut tree</a></li>
-                    <li><a href="/videos/page_prn">Prn Ads</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Impressions</a>
-                <ul>
-                    <li><a href="/impressions/page_kiss">Kiss/Viral article</a></li>
-                    <li><a href="/impressions/page_pulp">Pulp fanzines</a></li>
-                    <li><a href="/impressions/page_leather">Leather D</a></li>
-                    <li><a href="/impressions/page_homoncule">Homoncule</a></li>
-                    <li><a href="/impressions/page_hidden">Hidden cams</a></li>
-                    <li><a href="/impressions/page_recits">Récits interactifs</a></li>
-                </ul>
-            </li>
-        </ul>
+               <div id="menu-container"></div>
     </nav>
     </header>
 
@@ -535,3 +524,4 @@
 
 </body>
 </html>
+
