@@ -69,3 +69,28 @@ a:hover {
     text-decoration: none;
     font-weight: 600;
 }
+
+/* ===== HEADER ===== */
+.site-header {
+    width: 100%;
+    padding: 18px 40px;
+    position: sticky; /* reste visible en scroll */
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
+
+.site-header a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #111;
+}
+
+.site-header a:hover {
+    opacity: 0.7;
+}
+
